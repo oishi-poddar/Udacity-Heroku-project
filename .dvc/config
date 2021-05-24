@@ -1,0 +1,4 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = http://oishiownawsbucket.s3-website-us-east-1.amazonaws.com
