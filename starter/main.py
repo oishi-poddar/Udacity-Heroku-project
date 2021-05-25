@@ -9,8 +9,8 @@ import numpy as np
 import pandas as pd
 from fastapi import Body, FastAPI, status
 from fastapi.responses import JSONResponse
+import os
 
-import json
 app = FastAPI()
 
 @app.get("/")
@@ -36,7 +36,8 @@ class Input(BaseModel):
 @app.post("/model/")
 async def post_train_model(input: Input):
     filename = 'startertrainedmodel' + '.pkl'
-    with open("starter/ml/" + filename, 'rb') as file:
+    path = os.path.join(os.getcwd()+"/starter/ml")
+    with open(path+"/"+filename, 'rb') as file:
         model = pickle.load(file)
     with open("encoder.pickle", 'rb') as file:
         encoder = pickle.load(file)

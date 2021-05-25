@@ -1,8 +1,11 @@
 import pickle
 import numpy as np
 from starter.ml.model import inference, train_model, compute_model_metrics
+import os
 
 def test_inference():
+    filename = 'startertrainedmodel' + '.pkl'
+    path = os.path.join(os.getcwd() + "/starter/ml")
     with open("startertrainedmodel.pkl", 'rb') as file:
         model = pickle.load(file)
     X = np.array([np.zeros(108)])
