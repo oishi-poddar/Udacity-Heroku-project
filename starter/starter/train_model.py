@@ -10,8 +10,10 @@ import os
 
 # Add code to load in the data.
 def train():
-    data = pd.read_csv("/Users/apple/PycharmProjects/nd0821-c3-starter-code/starter/data/clean_census_data.csv")
-    # Optional enhancement, use K-fold cross validation instead of a train-test split.
+    path = os.path.join(os.getcwd() + "/starter/data")
+    filename = "clean_census_data.csv"
+    data = pd.read_csv(path + "/" +filename)
+
     train, test = train_test_split(data, test_size=0.20)
 
     cat_features = [
@@ -39,14 +41,20 @@ def train():
     # save model, encoder and lb to pickle file
     filename = 'startertrainedmodel' + '.pkl'
     path = os.path.join(os.getcwd() + "/starter/starter/ml")
-    pickle.dump(model, open(path +"/" + filename, 'wb'))
-
-    with open('encoder.pickle', 'wb') as f:
-        pickle.dump(encoder, f)
-    with open('lib.pickle', 'wb') as f:
+    with open(path + '/' +filename, 'wb') as file:
+        pickle.dump(model, file)
+    path = os.path.join(os.getcwd() + "/starter")
+    with open(path + '/encoder.pickle', 'wb') as file:
+        pickle.dump(encoder, file)
+    with open(path + '/lib.pickle', 'wb') as f:
         pickle.dump(lb, f)
     preds = inference(model, X_test)
     precision, recall, fbeta = compute_model_metrics(y_test, preds)
-    with open("slice_outpt.txt") as file:
-        file.write("Precision", str(precision))
+    with open("slice_outpt.txt", "w") as file:
+        file.write("Precision " + str(precision) +'\n')
+        file.write("Recall " + str(recall) + '\n')
+        file.write("F-beta score " + str(fbeta))
 
+
+if __name__ == "__main__":
+    train()

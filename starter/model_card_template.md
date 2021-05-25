@@ -33,7 +33,9 @@ native-country: United-States, Cambodia, England, Puerto-Rico, Canada, Germany, 
 
 
 ## Quantitative Analyses
-
+Upon evaluating performance of the model, it was found that the model has a 
+precision of 0.7150442477876107 , 
+recall of  0.2573248407643312 and a F-beta score 0.3784543325526933
 ## Ethical Considerations
 Should keep race, sex biases in mind.
 ## Caveats and Recommendations

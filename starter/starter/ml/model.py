@@ -22,11 +22,9 @@ def train_model(X_train, y_train):
     """
 
     X_train, X_test, Y_train, Y_test = train_test_split(X_train, y_train, test_size=0.33, random_state=100)
-    # use logistic regression for training
-    LogisticRegression()
 
     # fit the logistic regression to your data
-    model = LogisticRegression().fit(X_train, Y_train)
+    model = LogisticRegression(max_iter = 500).fit(X_train, Y_train)
     return model
 
 
