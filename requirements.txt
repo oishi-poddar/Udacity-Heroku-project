@@ -8,3 +8,4 @@ uvicorn
 gunicorn
 starlette<0.14.1
 uvloop
+httptools
