@@ -35,8 +35,8 @@ class Input(BaseModel):
 
 @app.post("/model/")
 async def post_train_model(input: Input):
-    filename = 'trainedmodel' + '.pkl'
-    with open("starter/starter" + filename, 'rb') as file:
+    filename = 'startertrainedmodel' + '.pkl'
+    with open("starter/ml/" + filename, 'rb') as file:
         model = pickle.load(file)
     with open("encoder.pickle", 'rb') as file:
         encoder = pickle.load(file)
