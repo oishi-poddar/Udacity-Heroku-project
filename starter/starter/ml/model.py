@@ -23,11 +23,7 @@ def train_model(X_train, y_train):
 
     X_train, X_test, Y_train, Y_test = train_test_split(X_train, y_train, test_size=0.33, random_state=100)
     # use logistic regression for training
-    LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
-                       intercept_scaling=1, l1_ratio=None, max_iter=200,
-                       multi_class='warn', n_jobs=None, penalty='l2',
-                       random_state=0, solver='liblinear', tol=0.0001, verbose=0,
-                       warm_start=False)
+    LogisticRegression()
 
     # fit the logistic regression to your data
     model = LogisticRegression().fit(X_train, Y_train)
@@ -74,18 +70,3 @@ def inference(model, X):
     return preds
 
 
-def test_inference():
-    assert type(inference(np.zeros(5))) is np.array
-
-
-def test_train_model():
-    X, y = random_data_constructor()
-    model = train_model(X,y)
-    assert isinstance(model, sklearn.linear_model._logistic.LogisticRegression)
-
-def test_compute_model_metrics():
-    y = random_data_constructor()
-    precision, recall, fbeta = compute_model_metrics(y, preds)
-    assert isinstance(precision, float)
-    assert isinstance(recall, float)
-    assert isinstance(fbeta, float)

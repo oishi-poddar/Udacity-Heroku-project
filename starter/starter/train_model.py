@@ -36,8 +36,8 @@ def train():
     # Train and save a model
     model = train_model(X_train, y_train)
     # save model, encoder and lb to pickle file
-    filename = 'trainedmodel' + '.pkl'
-    pickle.dump(model, open("starter/starter" + filename, 'wb'))
+    filename = 'startertrainedmodel' + '.pkl'
+    pickle.dump(model, open("starter/ml" + filename, 'wb'))
 
     with open('encoder.pickle', 'wb') as f:
         pickle.dump(encoder, f)
@@ -45,3 +45,6 @@ def train():
         pickle.dump(lb, f)
     preds = inference(model, X_test)
     precision, recall, fbeta = compute_model_metrics(y_test, preds)
+    with open("slice_outpt.txt") as file:
+        file.write("Precision", str(precision))
+
