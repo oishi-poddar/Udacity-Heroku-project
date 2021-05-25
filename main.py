@@ -1,11 +1,9 @@
 # Put the code for your API here.
 
 from pydantic import BaseModel, Field
-from starter.ml.model import inference
-from starter.ml.data import process_data
-from starter.train_model import train
+from starter.starter.ml.model import inference
+from starter.starter.ml.data import process_data
 import pickle
-import numpy as np
 import pandas as pd
 from fastapi import Body, FastAPI, status
 from fastapi.responses import JSONResponse
