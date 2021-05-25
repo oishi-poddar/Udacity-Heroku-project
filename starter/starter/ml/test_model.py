@@ -5,7 +5,7 @@ import os
 
 def test_inference():
     filename = 'startertrainedmodel' + '.pkl'
-    path = os.path.join(os.getcwd() + "/starter/ml")
+    path = os.path.join(os.getcwd() + "/starter/starter/ml")
     with open("startertrainedmodel.pkl", 'rb') as file:
         model = pickle.load(file)
     X = np.array([np.zeros(108)])

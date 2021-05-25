@@ -5,6 +5,7 @@ import pandas as pd
 from starter.ml.data import process_data
 from starter.ml.model import train_model, inference, compute_model_metrics
 import pickle
+import os
 # Add the necessary imports for the starter code.
 
 # Add code to load in the data.
@@ -37,7 +38,8 @@ def train():
     model = train_model(X_train, y_train)
     # save model, encoder and lb to pickle file
     filename = 'startertrainedmodel' + '.pkl'
-    pickle.dump(model, open("starter/ml" + filename, 'wb'))
+    path = os.path.join(os.getcwd() + "/starter/starter/ml")
+    pickle.dump(model, open(path +"/" + filename, 'wb'))
 
     with open('encoder.pickle', 'wb') as f:
         pickle.dump(encoder, f)
