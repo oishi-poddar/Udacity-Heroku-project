@@ -62,8 +62,11 @@ def process_data(
         X_categorical = encoder.transform(X_categorical)
         try:
             y = lb.transform(y.values).ravel()
-        # Catch the case where y is None because we're doing inference.
+        # Catch the case where y is None because we're doing inference
         except AttributeError:
+            pass
+        except y is None:
+            print("doing inference")
             pass
 
     X = np.concatenate([X_continuous, X_categorical], axis=1)

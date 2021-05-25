@@ -1,4 +1,6 @@
 [core]
-    remote = myremote
+    remote = s3newremote
 ['remote "myremote"']
     url = http://oishiownawsbucket.s3-website-us-east-1.amazonaws.com
+['remote "s3newremote"']
+    url = s3://oishiownawsbucket
