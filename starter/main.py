@@ -39,9 +39,10 @@ async def post_train_model(input: Input):
     path = os.path.join(os.getcwd()+"/starter/starter/ml")
     with open(path+"/"+filename, 'rb') as file:
         model = pickle.load(file)
-    with open("encoder.pickle", 'rb') as file:
+    path = os.path.join(os.getcwd() + "/starter")
+    with open(path + "/encoder.pickle", 'rb') as file:
         encoder = pickle.load(file)
-    with open("lib.pickle", 'rb') as file:
+    with open(path + "/lib.pickle", 'rb') as file:
         lb = pickle.load(file)
     dict={ "workclass": input.workclass,
             "education": input.education,
