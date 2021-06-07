@@ -2,13 +2,11 @@
 
 from sklearn.model_selection import train_test_split
 import pandas as pd
-# from starter.ml.data import process_data
-# from starter.ml.model import train_model, inference, compute_model_metrics
+from starter.ml.data import process_data
+from starter.ml.model import train_model, inference, compute_model_metrics
 import pickle
 import os
 
-from ml.data import process_data
-from ml.model import train_model, inference, compute_model_metrics
 # Add the necessary imports for the starter code.
 
 # Add code to load in the data.
