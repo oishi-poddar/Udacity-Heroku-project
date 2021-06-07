@@ -2,6 +2,7 @@ import pickle
 import numpy as np
 from starter.starter.ml.model import inference, train_model, compute_model_metrics
 import os
+import sklearn.naive_bayes
 
 def test_inference():
     filename = 'startertrainedmodel' + '.pkl'
@@ -16,7 +17,7 @@ def test_train_model():
     X= np.array([[1, 2, 3], [4, 5, 6],[1, 2, 3], [4, 5, 6]])
     Y= np.array([0, 1,0,1])
     model = train_model(X,Y)
-    assert isinstance(model.coef_, np.ndarray)
+    assert type(model) == sklearn.naive_bayes.GaussianNB
 
 def test_compute_model_metrics():
     y = np.zeros(5)

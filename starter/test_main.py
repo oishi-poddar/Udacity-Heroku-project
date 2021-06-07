@@ -12,18 +12,18 @@ def test_app_prediction_50k_below():
     dictionary = {
       "age": 39,
       "fnlgt": 77516,
-      "education-num": 13,
-      "capital-gain": 2174,
-      "capital-loss": 0,
-      "hours-per-week": 40,
+      "education_num": 13,
+      "capital_gain": 2174,
+      "capital_loss": 0,
+      "hours_per_week": 40,
       "workclass": "State-gov",
       "education": "Bachelors",
-      "marital-status": "Never-married",
+      "marital_status": "Never-married",
       "occupation": "Adm-clerical",
       "relationship": "Not-in-family",
       "race": "White",
       "sex": "Male",
-      "native-country": "United-States"
+      "native_country": "United-States"
     }
     client = TestClient(app)
     response = client.post("/model/", json=dictionary)
@@ -36,18 +36,18 @@ def test_app__another_prediction_above_50k():
     dictionary={
         "age": 52,
         "fnlgt": 209642,
-        "education-num": 9,
-        "capital-gain": 123387,
-        "capital-loss": 0,
-        "hours-per-week": 40,
+        "education_num": 9,
+        "capital_gain": 123387,
+        "capital_loss": 0,
+        "hours_per_week": 40,
         "workclass": "Self-emp-not-inc",
         "education": "Bachelors",
-        "marital-status": "Married-civ-spouse",
+        "marital_status": "Married-civ-spouse",
         "occupation": "Exec-managerial",
         "relationship": "Husband",
         "race": "White",
         "sex": "Male",
-        "native-country": "United-States"
+        "native_country": "United-States"
     }
     client = TestClient(app)
     response = client.post("/model/", json=dictionary)
