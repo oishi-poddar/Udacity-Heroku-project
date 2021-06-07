@@ -8,7 +8,7 @@ def test_app_get():
     assert isinstance(response.content,bytes)
     assert str(response.content == "Welcome to my app")
 
-def test_app_prediction_50k_below():
+def test_app_prediction_below_50k():
     dictionary = {
       "age": 39,
       "fnlgt": 77516,
@@ -29,10 +29,9 @@ def test_app_prediction_50k_below():
     response = client.post("/model/", json=dictionary)
     assert response.status_code == 200
     assert isinstance(response.content, bytes)
-    # assert list(response.json()) == [1]  #  testing one possible case where resturn value is 1
-    assert response.text == '\"<=50K\"'
+    assert list(response.json()) == [1]  #  testing one possible case where resturn value is 1 signifying salary <=50k
 
-def test_app__another_prediction_above_50k():
+def test_app_prediction_above_50k():
     dictionary={
         "age": 52,
         "fnlgt": 209642,
@@ -53,5 +52,4 @@ def test_app__another_prediction_above_50k():
     response = client.post("/model/", json=dictionary)
     assert response.status_code == 200
     assert isinstance(response.content, bytes)
-    # assert list(response.json()) == [0]   #  testing another possible case where return value is 0
-    assert response.text == '\">50K\"'
+    assert list(response.json()) == [0]  #  testing another possible case where return value is 0 signifying salary above 50k

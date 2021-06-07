@@ -93,6 +93,5 @@ async def post_train_model(input: Input):
         encoder=encoder, lb= lb
     )
     preds = inference(model, X)
-    outputs = ["<=50K", ">50K"]
 
-    return JSONResponse(status_code=200, text=outputs[preds])
+    return JSONResponse(status_code=200, content=preds.tolist())
