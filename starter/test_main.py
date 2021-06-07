@@ -18,12 +18,12 @@ def test_app_prediction():
       "race": "White",
       "sex": "Male",
       "native_country": "United-States",
-      "age": "39",
+      "age": "52",
       "fnlgt": "77516",
       "education_num":"9",
-      "capital_gain" : "1",
-      "capital_loss": "1",
-      "hours_per_week":"10"
+      "capital_gain" : "0",
+      "capital_loss": "0",
+      "hours_per_week":"45"
         }
     client = TestClient(app)
     response = client.post("/model/", json=dict)
@@ -31,23 +31,23 @@ def test_app_prediction():
     assert isinstance(response.content, bytes)
     assert list(response.json()) == [1]  #  testing one possible case where resturn value is 1
 
-
+, Private, 160187, 9th, 5, Married-spouse-absent, Other-service, Not-in-family, Black, Female, 0, 0, 16, Jamaica
 def test_app__another_prediction():
     dict={
         "workclass": "Private",
-      "education": "Bachelors",
-      "marital_status": "Married-civ-spouse",
-      "occupation": "Prof-specialty",
-      "relationship": "Wife",
+      "education": "9th",
+      "marital_status": "Married-spouse-absent",
+      "occupation": "Other-service",
+      "relationship": "Not-in-family",
       "race": "Black",
       "sex": "Female",
       "native_country": "Cuba",
-      "age": 23,
-      "fnlgt": 2334,
-      "education_num": 7,
+      "age": 49,
+      "fnlgt": 160187,
+      "education_num": 5,
       "capital_gain": 0,
       "capital_loss": 0,
-      "hours_per_week": 60
+      "hours_per_week": 16
         }
     client = TestClient(app)
     response = client.post("/model/", json=dict)
