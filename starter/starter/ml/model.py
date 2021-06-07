@@ -1,8 +1,6 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-import numpy as np
 import pickle
+from sklearn.naive_bayes import GaussianNB
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -21,10 +19,9 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
 
-    X_train, X_test, Y_train, Y_test = train_test_split(X_train, y_train, test_size=0.33, random_state=100)
+    gnb = GaussianNB()
+    model = gnb.fit(X_train, y_train)
 
-    # fit the logistic regression to your data
-    model = LogisticRegression(max_iter = 500).fit(X_train, Y_train)
     return model
 
 
