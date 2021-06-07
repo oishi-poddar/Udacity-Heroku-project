@@ -8,20 +8,19 @@ def test_app_get():
     assert isinstance(response.content,bytes)
     assert str(response.content == "Welcome to my app")
 
-
 def test_app_prediction():
     dict={
-      "workclass": "State-gov",
-      "education": "Bachelors",
-      "marital_status": "Never-married",
-      "occupation": "Adm-clerical",
-      "relationship": "Not-in-family",
+      "workclass": "Self-emp-not-inc",
+      "education": "HS-grad",
+      "marital_status": "Married-civ-spouse",
+      "occupation": "Exec-managerial",
+      "relationship": "Husband",
       "race": "White",
       "sex": "Male",
       "native_country": "United-States",
       "age": "39",
       "fnlgt": "77516",
-      "education_num":"1",
+      "education_num":"9",
       "capital_gain" : "1",
       "capital_loss": "1",
       "hours_per_week":"10"
@@ -30,7 +29,7 @@ def test_app_prediction():
     response = client.post("/model/", json=dict)
     assert response.status_code == 200
     assert isinstance(response.content, bytes)
-    assert list(response.json()) == [0]
+    assert list(response.json()) == [1]  #  testing one possible case where resturn value is 1
 
 
 def test_app__another_prediction():
@@ -54,4 +53,4 @@ def test_app__another_prediction():
     response = client.post("/model/", json=dict)
     assert response.status_code == 200
     assert isinstance(response.content, bytes)
-    assert list(response.json()) == [0]
+    assert list(response.json()) == [0]   #  testing another possible case where return value is 0

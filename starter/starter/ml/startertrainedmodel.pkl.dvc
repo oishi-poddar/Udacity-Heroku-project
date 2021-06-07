@@ -1,0 +1,4 @@
+outs:
+- md5: 7d5c0d0b0584912dff55d5102a52f2cb
+  size: 1576
+  path: startertrainedmodel.pkl
