@@ -31,7 +31,6 @@ def test_app_prediction():
     assert isinstance(response.content, bytes)
     assert list(response.json()) == [1]  #  testing one possible case where resturn value is 1
 
-, Private, 160187, 9th, 5, Married-spouse-absent, Other-service, Not-in-family, Black, Female, 0, 0, 16, Jamaica
 def test_app__another_prediction():
     dict={
         "workclass": "Private",
