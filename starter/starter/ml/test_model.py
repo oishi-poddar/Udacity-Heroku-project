@@ -1,6 +1,6 @@
 import pickle
 import numpy as np
-from starter.ml.model import inference, train_model, compute_model_metrics
+from starter.starter.ml.model import inference, train_model, compute_model_metrics
 import os
 
 def test_inference():
