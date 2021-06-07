@@ -42,38 +42,8 @@ async def post_train_model(input: Input):
         encoder = pickle.load(file)
     with open(path + "/lib.pickle", 'rb') as file:
         lb = pickle.load(file)
-    dict={ "workclass": input.workclass,
-            "education": input.education,
-            "marital-status": input.marital_status,
-            "occupation": input.occupation,
-            "relationship": input.relationship,
-            "race": input.race,
-            "sex": input.sex,
-            "native-country": input.native_country,
-            "age": input.age,
-            "fnlgt": input.fnlgt,
-            "education-num": input.education_num,
-           "capital-gain" : input.capital_gain,
-           "capital-loss": input.capital_loss,
-           "hours-per-week": input.hours_per_week
-
-           }
-    columns = [
-            "workclass",
-            "education",
-            "marital-status",
-            "occupation",
-            "relationship",
-            "race",
-            "sex",
-            "native-country",
-            "age",
-            "fnlgt",
-             "education-num",
-            "capital-gain",
-            "capital-loss",
-            "hours-per-week"
-        ]
+    dict = input.dict()
+    columns = dict.keys()
     features = [
             "workclass",
             "education",

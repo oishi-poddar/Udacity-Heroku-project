@@ -6,7 +6,7 @@ def test_app_get():
     response = client.get('/')
     assert response.status_code == 200
     assert isinstance(response.content,bytes)
-    assert str(response.content == "Welcome to my app")
+    assert response.content == "Welcome to my app"
 
 def test_app_prediction_below_50k():
     dictionary = {
