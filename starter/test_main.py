@@ -29,7 +29,7 @@ def test_app_prediction_below_50k():
     response = client.post("/model/", json=dictionary)
     assert response.status_code == 200
     assert isinstance(response.content, bytes)
-    assert list(response.json()) == [1]  #  testing one possible case where resturn value is 1 signifying salary <=50k
+    assert list(response.json()) == [0]  #  testing one possible case where resturn value is 0 signifying salary <=50k
 
 def test_app_prediction_above_50k():
     dictionary={
@@ -52,4 +52,4 @@ def test_app_prediction_above_50k():
     response = client.post("/model/", json=dictionary)
     assert response.status_code == 200
     assert isinstance(response.content, bytes)
-    assert list(response.json()) == [0]  #  testing another possible case where return value is 0 signifying salary above 50k
+    assert list(response.json()) == [1]  #  testing another possible case where return value is 1 signifying salary above 50k
